@@ -12,5 +12,12 @@ knitr::opts_chunk$set(echo = TRUE)
 ## R Markdown
 prova prova
 
+<<<<<<< HEAD
 prova2
+prova gianluca
+=======
+prova 3aaaaa
+aa
+>>>>>>> 65518fe794ad289a9df383f17cbb8edd891e4aa9
+
 prova gianluca
