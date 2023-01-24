@@ -1,0 +1,13 @@
+---
+title: "Progetto R"
+author: "Team"
+date: "2023-01-24"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+prova prova
