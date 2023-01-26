@@ -5,6 +5,9 @@ date: "2023-01-24"
 output:
   html_document:
     df_print: paged
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
@@ -12,71 +15,126 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## R Markdown
-Variable Label
-year Year
-country Country
-iso ISO 3-letter code
-ifs IFS 3-number country-code
-pop Population
-rgdpmad Real GDP per capita (PPP, 1990 Int$, Maddison)
-rgdbarro Real GDP per capita (index, 2005=100)
-rconsbarro Real consumption per capita (index, 2006=100)
-gdp GDP (nominal, local currency)
-iy Investment-to-GDP ratio
-cpi Consumer prices (index, 1990=100)
-ca Current account (nominal, local currency)
-imports Imports (nominal, local currency)
-exports Exports (nominal, local currency)
-narrowm Narrow money (nominal, local currency)
-money Broad money (nominal, local currency)
-stir Short-term interest rate (nominal, percent per year)
-ltrate Long-term interest rate (nominal, percent per year)
-hpnom House prices (nominal index, 1990=100)
-unemp Unemployment rate (percent)
-wage Wages (index, 1990= 100)
-debtgdp Public debt-to-GDP ratio
-revenue Government revenues (nominal, local currency)
-expenditure Government expenditure (nominal, local currency)
-xrusd USD exchange rate (local currency/USD)
-peg Peg dummy
-peg_strict Strict peg dummy
-crisisJST Systemic financial crises (0-1 dummy); included since R5
-crisisJST_old Systemic financial crises (0-1 dummy); as coded in all prior releases (R1 – R4)
-JSTtrilemmaIV JST trilemma instrument (raw base rate changes)
-tloans Total loans to non-financial private sector (nominal, local currency)
-tmort Mortgage loans to non-financial private sector (nominal, local currency)
-thh Total loans to households (nominal, local currency)
-tbus Total loans to business (nominal, local currency)
-bdebt Corporate debt (nominal, local currency)
-peg_type Peg type (BASE, PEG, FLOAT)
-peg_base Peg base (GBR, USA, DEU, HYBRID, NA)
-eq_tr Equity total return, nominal. r[t] = [[p[t] + d[t]] / p[t-1] ] - 1
-housing_tr Housing total return, nominal. r[t] = [[p[t] + d[t]] / p[t-1] ] - 1
-7
-bond_tr Government bond total return, nominal. r[t] = [[p[t] + coupon[t]] / p[t-1] ] - 1
-bill_rate Bill rate, nominal. r[t] = coupon[t] / p[t-1]
-rent_ipolated 1 if housing rental yields interpolated e.g. wartime
-housing_capgain_ipol
-ated
-1 if housing capital gains and total returns interpolated e.g. wartime
-housing_capgain Housing capital gain, nominal. cg[t] = [ p[t] / p[t-1] ] - 1
-housing_rent_rtn Housing rental return. dp_rtn[t] = rent[t]/p[t-1]
-housing_rent_yd Housing rental yield. dp[t] = rent[t]/p[t]
-eq_capgain Equity capital gain, nominal. cg[t] = [ p[t] / p[t-1] ] - 1
-eq_dp Equity dividend yield. dp[t] = dividend[t]/p[t]
-eq_capgain_interp 1 if equity cap. gain interpolated to cover exchange closure
-eq_tr_interp 1 if equity total return interpolated to cover exchange closure
-eq_dp_interp 1 if equity dividend interpolated or assumed zero to cover exchange closure
-bond_rate Gov. bond rate, rate[t] = coupon[t] / p[t-1], or yield to maturity at t
-eq_div_rtn Equity dividend return. dp_rtn[t] = dividend[t]/p[t-1]
-capital_tr Tot. rtn. on wealth, nominal. Wtd. avg. of housing, equity, bonds and bills
-risky_tr Tot. rtn. on risky assets, nominal. Wtd. avg. of housing and equity
-safe_tr Tot. rtn. on safe assets, nominal. Equally wtd. avg. of bonds and bills
-lev Banks, capital ratio (in %)
-ltd Banks, loans-to-deposits ratio (in %)
-noncore Banks, noncore funding ratio (in %)
 
-https://www.macrohistory.net/database/
+Descrizione variabili
+
+Variable Label
+
+-   **year Year**
+
+-   **country Country**
+
+-   iso ISO 3-letter code ifs
+
+-   IFS 3-number country-code pop Population
+
+-   rgdpmad Real GDP per capita (PPP, 1990 Int\$, Maddison)
+
+-   **rgdbarro Real GDP per capita (index, 2005=100)** - andamento nel
+    tempo per paese all'interno dell'Eurozona? (chi cresce di più?)
+    Gaetano
+
+-   **rconsbarro Real consumption per capita (index, 2006=100)** -
+    (parcheggiamo inflazione)
+
+-    **gdp GDP (nominal, local currency)**  - confronto nel tempo del
+    GDP (crescita in totale) Gianluca
+
+-   **iy Investment-to-GDP ratio - correlazione tra iy e** **gdp**
+
+    (1 euro investito 5 anni fa è correlato alla crescita) Gaetano
+
+-   cpi Consumer prices (index, 1990=100)  - media prezzi ponderati del
+    paniere (inflazione) - esiste una correllazione tra inflazione e
+    popolazione? Gabriele
+
+-   ca Current account (nominal, local currency)  - ?
+
+-   imports Imports (nominal, local currency) - Quali Paesi importano
+    di + (negli ultimi 10 anni)? Per paese, incidenza del Import sul
+    GDP? Gianluca
+
+-   exports Exports (nominal, local currency) - Quali Paesi esportano
+    di + (negli ultimi 10 anni) Gianluca
+
+-   narrowm Narrow money (nominal, local currency)
+
+-   money Broad money (nominal, local currency)
+
+-   stir Short-term interest rate (nominal, percent per year)
+
+-   ltrate Long-term interest rate (nominal, percent per year)
+
+-   hpnom House prices (nominal index, 1990=100)
+
+-   unemp Unemployment rate (percent)
+
+-   wage Wages (index, 1990= 100)
+
+-   debtgdp Public debt-to-GDP ratio revenue Government revenues
+    (nominal, local currency)
+
+-   expenditure Government expenditure (nominal, local currency)
+
+-   xrusd USD exchange rate (local currency/USD)
+
+-   peg Peg dummy peg_strict Strict peg dummy crisisJST Systemic
+    financial crises (0-1 dummy);
+
+-   included since R5 crisisJST_old Systemic financial crises (0-1
+    dummy);
+
+-   as coded in all prior releases (R1 -- R4)
+
+-   JSTtrilemmaIV JST trilemma instrument (raw base rate changes)
+
+-   tloans Total loans to non-financial private sector (nominal, local
+    currency)
+
+-    tmort Mortgage loans to non-financial private sector (nominal,
+    local currency)
+
+-   thh Total loans to households (nominal, local currency)
+
+-   tbus Total loans to business (nominal, local currency)
+
+-   bdebt Corporate debt (nominal, local currency)
+
+-   peg_type Peg type (BASE, PEG, FLOAT)
+
+-   peg_base Peg base (GBR, USA, DEU, HYBRID, NA)
+
+-   eq_tr Equity total return, nominal. r[t] = [[p[t] + d[t]] / p[t-1]
+    ] - 1 housing_tr Housing total return,
+
+-   nominal. r[t] = [[p[t] + d[t]] / p[t-1] ] - 1 7 bond_tr Government
+    bond total return,
+
+-   nominal. r[t] = [[p[t] + coupon[t]] / p[t-1] ] - 1 bill_rate Bill
+    rate, nominal.
+
+-    r[t] = coupon[t] / p[t-1] rent_ipolated 1 if housing rental yields
+    interpolated e.g. wartime housing_capgain_ipol ated 1 if housing
+    capital gains and total returns interpolated e.g. wartime
+    housing_capgain Housing capital gain, nominal. cg[t] = [ p[t] /
+    p[t-1] ] - 1 housing_rent_rtn Housing rental return. dp_rtn[t] =
+    rent[t]/p[t-1] housing_rent_yd Housing rental yield. dp[t] =
+    rent[t]/p[t] eq_capgain Equity capital gain, nominal. cg[t] = [ p[t]
+    / p[t-1] ] - 1 eq_dp Equity dividend yield. dp[t] = dividend[t]/p[t]
+    eq_capgain_interp 1 if equity cap. gain interpolated to cover
+    exchange closure eq_tr_interp 1 if equity total return interpolated
+    to cover exchange closure eq_dp_interp 1 if equity dividend
+    interpolated or assumed zero to cover exchange closure bond_rate
+    Gov. bond rate, rate[t] = coupon[t] / p[t-1], or yield to maturity
+    at t eq_div_rtn Equity dividend return. dp_rtn[t] =
+    dividend[t]/p[t-1] capital_tr Tot. rtn. on wealth, nominal. Wtd.
+    avg. of housing, equity, bonds and bills risky_tr Tot. rtn. on risky
+    assets, nominal. Wtd. avg. of housing and equity safe_tr Tot. rtn.
+    on safe assets, nominal. Equally wtd. avg. of bonds and bills lev
+    Banks, capital ratio (in %) ltd Banks, loans-to-deposits ratio (in
+    %) noncore Banks, noncore funding ratio (in %)
+
+<https://www.macrohistory.net/database/>
 
 ```{r}
 library(readxl)
@@ -85,4 +143,3 @@ df <- read_excel("Dati macroeconomi.xlsx")
 str(df)
 
 ```
-
