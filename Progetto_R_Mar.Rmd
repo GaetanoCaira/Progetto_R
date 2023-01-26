@@ -10,14 +10,63 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## R Markdown
-prova prova
+Real Economy
 
-<<<<<<< HEAD
-prova2
-prova gianluca
-=======
-prova 3aaaaa
-aa
->>>>>>> 65518fe794ad289a9df383f17cbb8edd891e4aa9
+Nominal GDP (local currency), Real GDP per capita (PPP), Real GDP per capita (index, 2005=100), Real Consumption per capita (index, 2006=100), Investment-to-GDP Ratio, Population, Unemployment Rate, Wages (index, 1990=100)
 
-prova gianluca
+ 
+
+International
+
+Current Account (nominal, local currency), Imports (nominal, local currency), Exports (nominal, local currency), USD Exchange Rate (local currency/USD)
+
+ 
+
+Government
+
+Government Revenue (nominal, local currency), Government Expenditure (nominal, local currency), Public Debt-to-GDP Ratio
+
+ 
+
+Money, Prices & Interest Rates
+
+Narrow Money (nominal, local currency), Broad Money (nominal, local currency), Short-term Interest Rate (nominal, percent per year), Long-term Interest Rates (nominal, percent per year), Consumer Prices (index, 1990=100)
+
+ 
+
+Credit Data
+
+Total Loans to Non-financial Private Sector (nominal, local currency), Mortgage Loans to Non-financial Private Sector (nominal, local currency), Total Loans to Households (nominal, local currency), Total Loans to Business (nominal, local currency)
+
+ 
+
+House Prices
+
+House Prices (index, 1990=100)
+
+ 
+
+Crisis Dates
+
+Systemic Financial Crisis (0-1 dummy)
+
+ 
+
+Rates of Return
+
+Equity Total Return, Capital Gain and Dividend Yield; Housing Total Return, Capital Gain and Rental Yield; Government Bond Total Return, Government Bill Rate; Total Rates of Return on Risky and Safe Assets, and on Overall Wealth. All data are nominal, local currency.
+
+ 
+
+Peg Data 
+
+Peg (0-1 dummy), Strict Peg (0-1 dummy), Peg Type (Base, Peg, Float), Peg Base
+
+ 
+
+Bank Balance Sheet Ratios
+
+Capital Ratio, Loan-to-Deposit Ratio, Noncore Funding Ratio
+
+https://www.macrohistory.net/database/
+
