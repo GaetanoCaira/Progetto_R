@@ -12,40 +12,69 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## R Markdown
-Real Economy
-
-Nominal GDP (local currency), Real GDP per capita (PPP), Real GDP per capita (index, 2005=100), Real Consumption per capita (index, 2006=100), Investment-to-GDP Ratio, Population, Unemployment Rate, Wages (index, 1990=100)
-
- 
-International
-Current Account (nominal, local currency), Imports (nominal, local currency), Exports (nominal, local currency), USD Exchange Rate (local currency/USD)
-
-
-Government
-Government Revenue (nominal, local currency), Government Expenditure (nominal, local currency), Public Debt-to-GDP Ratio
-
-Money, Prices & Interest Rates
-Narrow Money (nominal, local currency), Broad Money (nominal, local currency), Short-term Interest Rate (nominal, percent per year), Long-term Interest Rates (nominal, percent per year), Consumer Prices (index, 1990=100)
-
-Credit Data
-Total Loans to Non-financial Private Sector (nominal, local currency), Mortgage Loans to Non-financial Private Sector (nominal, local currency), Total Loans to Households (nominal, local currency), Total Loans to Business (nominal, local currency)
-
-House Prices
-House Prices (index, 1990=100)
-
-Crisis Dates
-Systemic Financial Crisis (0-1 dummy)
-
-Rates of Return
-Equity Total Return, Capital Gain and Dividend Yield; Housing Total Return, Capital Gain and Rental Yield; Government Bond Total Return, Government Bill Rate; Total Rates of Return on Risky and Safe Assets, and on Overall Wealth. All data are nominal, local currency.
-
- 
-Peg Data 
-Peg (0-1 dummy), Strict Peg (0-1 dummy), Peg Type (Base, Peg, Float), Peg Base
-
- 
-Bank Balance Sheet Ratios
-Capital Ratio, Loan-to-Deposit Ratio, Noncore Funding Ratio
+Variable Label
+year Year
+country Country
+iso ISO 3-letter code
+ifs IFS 3-number country-code
+pop Population
+rgdpmad Real GDP per capita (PPP, 1990 Int$, Maddison)
+rgdbarro Real GDP per capita (index, 2005=100)
+rconsbarro Real consumption per capita (index, 2006=100)
+gdp GDP (nominal, local currency)
+iy Investment-to-GDP ratio
+cpi Consumer prices (index, 1990=100)
+ca Current account (nominal, local currency)
+imports Imports (nominal, local currency)
+exports Exports (nominal, local currency)
+narrowm Narrow money (nominal, local currency)
+money Broad money (nominal, local currency)
+stir Short-term interest rate (nominal, percent per year)
+ltrate Long-term interest rate (nominal, percent per year)
+hpnom House prices (nominal index, 1990=100)
+unemp Unemployment rate (percent)
+wage Wages (index, 1990= 100)
+debtgdp Public debt-to-GDP ratio
+revenue Government revenues (nominal, local currency)
+expenditure Government expenditure (nominal, local currency)
+xrusd USD exchange rate (local currency/USD)
+peg Peg dummy
+peg_strict Strict peg dummy
+crisisJST Systemic financial crises (0-1 dummy); included since R5
+crisisJST_old Systemic financial crises (0-1 dummy); as coded in all prior releases (R1 – R4)
+JSTtrilemmaIV JST trilemma instrument (raw base rate changes)
+tloans Total loans to non-financial private sector (nominal, local currency)
+tmort Mortgage loans to non-financial private sector (nominal, local currency)
+thh Total loans to households (nominal, local currency)
+tbus Total loans to business (nominal, local currency)
+bdebt Corporate debt (nominal, local currency)
+peg_type Peg type (BASE, PEG, FLOAT)
+peg_base Peg base (GBR, USA, DEU, HYBRID, NA)
+eq_tr Equity total return, nominal. r[t] = [[p[t] + d[t]] / p[t-1] ] - 1
+housing_tr Housing total return, nominal. r[t] = [[p[t] + d[t]] / p[t-1] ] - 1
+7
+bond_tr Government bond total return, nominal. r[t] = [[p[t] + coupon[t]] / p[t-1] ] - 1
+bill_rate Bill rate, nominal. r[t] = coupon[t] / p[t-1]
+rent_ipolated 1 if housing rental yields interpolated e.g. wartime
+housing_capgain_ipol
+ated
+1 if housing capital gains and total returns interpolated e.g. wartime
+housing_capgain Housing capital gain, nominal. cg[t] = [ p[t] / p[t-1] ] - 1
+housing_rent_rtn Housing rental return. dp_rtn[t] = rent[t]/p[t-1]
+housing_rent_yd Housing rental yield. dp[t] = rent[t]/p[t]
+eq_capgain Equity capital gain, nominal. cg[t] = [ p[t] / p[t-1] ] - 1
+eq_dp Equity dividend yield. dp[t] = dividend[t]/p[t]
+eq_capgain_interp 1 if equity cap. gain interpolated to cover exchange closure
+eq_tr_interp 1 if equity total return interpolated to cover exchange closure
+eq_dp_interp 1 if equity dividend interpolated or assumed zero to cover exchange closure
+bond_rate Gov. bond rate, rate[t] = coupon[t] / p[t-1], or yield to maturity at t
+eq_div_rtn Equity dividend return. dp_rtn[t] = dividend[t]/p[t-1]
+capital_tr Tot. rtn. on wealth, nominal. Wtd. avg. of housing, equity, bonds and bills
+risky_tr Tot. rtn. on risky assets, nominal. Wtd. avg. of housing and equity
+safe_tr Tot. rtn. on safe assets, nominal. Equally wtd. avg. of bonds and bills
+lev Banks, capital ratio (in %)
+ltd Banks, loans-to-deposits ratio (in %)
+noncore Banks, noncore funding ratio (in %)
 
 https://www.macrohistory.net/database/
 
